@@ -22,8 +22,15 @@ const understandingReducer = (state = "", action) => {
   return state;
 };
 
+const supportReducer = (state = "", action) => {
+  if (action.type === "SET_SUPPORT_RATE") {
+    return action.payload;
+  }
+  return state;
+};
+
 const storeInstance = createStore(
-  combineReducers({ feelingReducer }),
+  combineReducers({ feelingReducer, understandingReducer, supportReducer }),
   applyMiddleware(logger)
 );
 
