@@ -40,13 +40,16 @@ class SupportPage extends Component {
             min="1"
             max="5"
             placeholder="1-5"
+            require="required"
           ></input>
         </div>
 
         <div>
-          <button onClick={this.handleNextClick} className="app-btn">
-            NEXT
-          </button>
+          {this.state.support && (
+            <button onClick={this.handleNextClick} className="app-btn">
+              NEXT
+            </button>
+          )}
         </div>
       </div>
     );
