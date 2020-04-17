@@ -7,6 +7,7 @@ import SupportPage from "../SupportPage/SupportPage";
 import CommentPage from "../CommentPage/CommentPage";
 import ReviewPage from "../ReviewPage/ReviewPage";
 import SubmissionPage from "../SubmissionPage/SubmissionPage";
+import AdminPage from "../AdminPage/AdminPage";
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
           <Route exact path="/comment" component={CommentPage} />
           <Route exact path="/review" component={ReviewPage} />
           <Route exact path="/submission" component={SubmissionPage} />
+          <Route exact path="/admin" component={AdminPage} />
         </Router>
       </div>
     );
