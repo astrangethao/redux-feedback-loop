@@ -7,14 +7,9 @@ class UnderstandingPage extends Component {
   };
 
   handleInputChange = (event) => {
-    this.setState(
-      {
-        understanding: Number(event.target.value),
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    this.setState({
+      understanding: Number(event.target.value),
+    });
   };
 
   handleNextClick = (event) => {

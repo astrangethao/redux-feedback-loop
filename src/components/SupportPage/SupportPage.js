@@ -7,14 +7,9 @@ class SupportPage extends Component {
   };
 
   handleInputChange = (event) => {
-    this.setState(
-      {
-        support: Number(event.target.value),
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    this.setState({
+      support: Number(event.target.value),
+    });
   };
 
   handleNextClick = (event) => {
