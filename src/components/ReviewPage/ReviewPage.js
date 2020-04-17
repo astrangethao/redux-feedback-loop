@@ -1,10 +1,27 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import axios from "axios";
 
 class ReviewPage extends Component {
   handleSubmit = (event) => {
-    this.props.history.push("/submission");
+    const feedback = {
+      feeling: this.props.store.feelingReducer,
+      understanding: this.props.store.understandingReducer,
+      support: this.props.store.supportReducer,
+      comments: this.props.store.commentReducer,
+    };
+
+    axios
+      .post("/feedback", feedback)
+      .then((response) => {
+        console.log(response.data);
+        this.props.history.push("/submission");
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
   };
+
   render() {
     return (
       <div>
