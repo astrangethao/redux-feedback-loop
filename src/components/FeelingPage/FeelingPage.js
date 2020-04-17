@@ -1,6 +1,30 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class FeelingPage extends Component {
+  state = {
+    feeling: "",
+  };
+
+  handleInputChange = (event) => {
+    this.setState(
+      {
+        feeling: Number(event.target.value),
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+  };
+
+  handleNextClick = (event) => {
+    this.props.dispatch({
+      type: "SET_FEELING_RATE",
+      payload: this.state.feeling,
+    });
+    this.props.history.push("/understanding");
+  };
+
   render() {
     return (
       <div>
@@ -10,6 +34,7 @@ class FeelingPage extends Component {
         <div>
           <h4>Feeling?</h4>
           <input
+            onChange={this.handleInputChange}
             className="app-input"
             type="number"
             min="1"
@@ -19,11 +44,13 @@ class FeelingPage extends Component {
         </div>
 
         <div>
-          <button className="app-btn">NEXT</button>
+          <button onClick={this.handleNextClick} className="app-btn">
+            NEXT
+          </button>
         </div>
       </div>
     );
   }
 }
 
-export default FeelingPage;
+export default connect()(FeelingPage);
