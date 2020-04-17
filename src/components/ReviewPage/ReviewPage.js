@@ -22,6 +22,10 @@ class ReviewPage extends Component {
       });
   };
 
+  handleBackClick = (event) => {
+    this.props.history.push("/comment");
+  };
+
   render() {
     return (
       <div>
@@ -32,9 +36,16 @@ class ReviewPage extends Component {
           <h4>Support: {this.props.store.supportReducer}</h4>
           <h4>Comments: {this.props.store.commentReducer}</h4>
         </div>
+
         <div>
           <button onClick={this.handleSubmit} className="app-btn">
             SUBMIT
+          </button>
+        </div>
+
+        <div>
+          <button onClick={this.handleBackClick} className="app-btn">
+            BACK
           </button>
         </div>
       </div>

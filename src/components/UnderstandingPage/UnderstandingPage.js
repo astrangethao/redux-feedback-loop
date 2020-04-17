@@ -24,6 +24,10 @@ class UnderstandingPage extends Component {
     }
   };
 
+  handleBackClick = (event) => {
+    this.props.history.push("/");
+  };
+
   render() {
     return (
       <div>
@@ -46,6 +50,12 @@ class UnderstandingPage extends Component {
         <div>
           <button onClick={this.handleNextClick} className="app-btn">
             NEXT
+          </button>
+        </div>
+
+        <div>
+          <button onClick={this.handleBackClick} className="app-btn">
+            BACK
           </button>
         </div>
       </div>

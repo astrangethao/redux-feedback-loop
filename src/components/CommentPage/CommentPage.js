@@ -20,6 +20,10 @@ class CommentPage extends Component {
     this.props.history.push("/review");
   };
 
+  handleBackClick = (event) => {
+    this.props.history.push("/support");
+  };
+
   render() {
     return (
       <div>
@@ -39,6 +43,12 @@ class CommentPage extends Component {
         <div>
           <button onClick={this.handleNextClick} className="app-btn">
             NEXT
+          </button>
+        </div>
+
+        <div>
+          <button onClick={this.handleBackClick} className="app-btn">
+            BACK
           </button>
         </div>
       </div>
