@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class ReviewPage extends Component {
+  handleSubmit = (event) => {
+    this.props.history.push("/submission");
+  };
   render() {
     return (
       <div>
@@ -13,7 +16,9 @@ class ReviewPage extends Component {
           <h4>Comments: {this.props.store.commentReducer}</h4>
         </div>
         <div>
-          <button className="app-btn">SUBMIT</button>
+          <button onClick={this.handleSubmit} className="app-btn">
+            SUBMIT
+          </button>
         </div>
       </div>
     );
