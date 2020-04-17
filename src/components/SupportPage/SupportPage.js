@@ -18,11 +18,15 @@ class SupportPage extends Component {
   };
 
   handleNextClick = (event) => {
-    this.props.dispatch({
-      type: "SET_SUPPORT_RATE",
-      payload: this.state.support,
-    });
-    this.props.history.push("/comment");
+    if (this.state.support) {
+      this.props.dispatch({
+        type: "SET_SUPPORT_RATE",
+        payload: this.state.support,
+      });
+      this.props.history.push("/comment");
+    } else {
+      alert("Please set a rate!");
+    }
   };
 
   render() {
@@ -45,11 +49,9 @@ class SupportPage extends Component {
         </div>
 
         <div>
-          {this.state.support && (
-            <button onClick={this.handleNextClick} className="app-btn">
-              NEXT
-            </button>
-          )}
+          <button onClick={this.handleNextClick} className="app-btn">
+            NEXT
+          </button>
         </div>
       </div>
     );

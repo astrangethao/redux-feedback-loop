@@ -18,11 +18,15 @@ class UnderstandingPage extends Component {
   };
 
   handleNextClick = (event) => {
-    this.props.dispatch({
-      type: "SET_UNDERSTANDING_RATE",
-      payload: this.state.understanding,
-    });
-    this.props.history.push("/support");
+    if (this.state.understanding) {
+      this.props.dispatch({
+        type: "SET_UNDERSTANDING_RATE",
+        payload: this.state.understanding,
+      });
+      this.props.history.push("/support");
+    } else {
+      alert("Please set a rate!");
+    }
   };
 
   render() {
@@ -45,11 +49,9 @@ class UnderstandingPage extends Component {
         </div>
 
         <div>
-          {this.state.understanding && (
-            <button onClick={this.handleNextClick} className="app-btn">
-              NEXT
-            </button>
-          )}
+          <button onClick={this.handleNextClick} className="app-btn">
+            NEXT
+          </button>
         </div>
       </div>
     );

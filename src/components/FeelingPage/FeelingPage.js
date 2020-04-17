@@ -18,11 +18,15 @@ class FeelingPage extends Component {
   };
 
   handleNextClick = (event) => {
-    this.props.dispatch({
-      type: "SET_FEELING_RATE",
-      payload: this.state.feeling,
-    });
-    this.props.history.push("/understanding");
+    if (this.state.feeling) {
+      this.props.dispatch({
+        type: "SET_FEELING_RATE",
+        payload: this.state.feeling,
+      });
+      this.props.history.push("/understanding");
+    } else {
+      alert("Please set a rate!");
+    }
   };
 
   render() {
@@ -45,11 +49,9 @@ class FeelingPage extends Component {
         </div>
 
         <div>
-          {this.state.feeling && (
-            <button onClick={this.handleNextClick} className="app-btn">
-              NEXT
-            </button>
-          )}
+          <button onClick={this.handleNextClick} className="app-btn">
+            NEXT
+          </button>
         </div>
       </div>
     );

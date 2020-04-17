@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 import FeelingPage from "../FeelingPage/FeelingPage";
 import UnderstandingPage from "../UnderstandingPage/UnderstandingPage";
 import SupportPage from "../SupportPage/SupportPage";
@@ -14,9 +14,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <header className="App-header">
-            <h1 className="App-title">
-              <Link to="/">Feedback!</Link>
-            </h1>
+            <h1 className="App-title">Feedback!</h1>
             <h4>
               <i>Don't forget it!</i>
             </h4>
