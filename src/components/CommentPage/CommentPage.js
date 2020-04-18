@@ -3,16 +3,19 @@ import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 
 class CommentPage extends Component {
+  //set state
   state = {
     comment: "",
   };
 
+  //method to set the state for the input changes
   handleInputChange = (event) => {
     this.setState({
       comment: event.target.value,
     });
   };
 
+  //method to dispatch the new input to redux and send user to next page
   handleNextClick = (event) => {
     this.props.dispatch({
       type: "SET_COMMENT",
@@ -21,6 +24,7 @@ class CommentPage extends Component {
     this.props.history.push("/review");
   };
 
+  //method to handle click event; sends user back to the previous page
   handleBackClick = (event) => {
     this.props.history.push("/support");
   };

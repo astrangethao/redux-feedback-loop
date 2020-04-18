@@ -4,6 +4,7 @@ import axios from "axios";
 import Button from "@material-ui/core/Button";
 
 class ReviewPage extends Component {
+  //get route to get data from server
   getFeedback = () => {
     axios
       .get("/feedback")
@@ -14,6 +15,7 @@ class ReviewPage extends Component {
       .catch((err) => console.warn("Error in GET", err));
   };
 
+  //method to handle submit button click; sets feedback object values and posts them to the database
   handleSubmit = (event) => {
     const feedback = {
       feeling: this.props.store.feelingReducer,
@@ -34,6 +36,7 @@ class ReviewPage extends Component {
       });
   };
 
+  //method to handle click event; sends user back to the previous page
   handleBackClick = (event) => {
     this.props.history.push("/comment");
   };

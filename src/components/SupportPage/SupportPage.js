@@ -3,16 +3,19 @@ import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 
 class SupportPage extends Component {
+  //set state
   state = {
     support: "",
   };
 
+  //method to set the state for the input changes
   handleInputChange = (event) => {
     this.setState({
       support: Number(event.target.value),
     });
   };
 
+  //method to dispatch the new input to redux and send user to next page
   handleNextClick = (event) => {
     if (this.state.support) {
       this.props.dispatch({
@@ -25,6 +28,7 @@ class SupportPage extends Component {
     }
   };
 
+  //method to handle click event; sends user back to the previous page
   handleBackClick = (event) => {
     this.props.history.push("/understanding");
   };

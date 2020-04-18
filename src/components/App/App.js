@@ -12,6 +12,7 @@ import AdminPage from "../AdminPage/AdminPage";
 class App extends Component {
   render() {
     return (
+      //created routes for the page views
       <div className="App">
         <Router>
           <header className="App-header">

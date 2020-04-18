@@ -4,25 +4,23 @@ import { connect } from "react-redux";
 import Item from "./Item/Item";
 
 class AdminPage extends Component {
+  //mount the get route
   componentDidMount() {
     console.log("mounted");
     this.getFeedback();
-    console.log(this.getFeedback());
   }
-
+  //get route to grab data from server; datatype is an array of objects
   getFeedback = () => {
     axios
       .get("/feedback")
       .then((response) => {
-        console.log(response.data);
         this.props.dispatch({ type: "SET_FEEDBACK", payload: response.data });
       })
       .catch((err) => console.warn("Error in GET", err));
   };
 
   render() {
-    console.log(this.props.store.feedbackReducer);
-
+    //map through the data from redux and render to the table
     const feedbackArray = this.props.store.feedbackReducer.map(
       (feedback, i) => {
         return <Item key={i} feedback={feedback} />;
