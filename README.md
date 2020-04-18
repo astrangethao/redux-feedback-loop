@@ -13,6 +13,7 @@ An additional back button is added to many of the views to allow users to change
 ## Screen Shot
 
 ![screenshot](wireframes/screenshot1.jpeg)
+![screenshot](wireframes/screenshot2.jpeg)
 
 ## Prerequisites
 
