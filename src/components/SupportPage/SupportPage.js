@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Button from "@material-ui/core/Button";
 
 class SupportPage extends Component {
   state = {
@@ -48,15 +49,23 @@ class SupportPage extends Component {
         </div>
 
         <div>
-          <button onClick={this.handleNextClick} className="app-btn">
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={this.handleNextClick}
+          >
             NEXT
-          </button>
+          </Button>
         </div>
 
         <div>
-          <button onClick={this.handleBackClick} className="app-btn">
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={this.handleBackClick}
+          >
             BACK
-          </button>
+          </Button>
         </div>
       </div>
     );

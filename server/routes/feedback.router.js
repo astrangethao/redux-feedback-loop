@@ -9,6 +9,7 @@ router.get("/", (req, res) => {
     .query(queryText)
     .then((responseDB) => {
       console.log("hi", responseDB.rows);
+      res.send(responseDB.rows);
     })
     .catch((error) => {
       console.log(error);

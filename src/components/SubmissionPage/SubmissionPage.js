@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Button from "@material-ui/core/Button";
 
 class SubmissionPage extends Component {
   handleSubmit = (event) => {
@@ -9,9 +10,13 @@ class SubmissionPage extends Component {
       <div>
         <h1>Thank you for the feedback!</h1>
         <div>
-          <button onClick={this.handleSubmit} className="app-btn">
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={this.handleSubmit}
+          >
             Leave New FeedBack
-          </button>
+          </Button>
         </div>
       </div>
     );

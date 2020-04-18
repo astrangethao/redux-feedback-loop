@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
+import Item from "./Item/Item";
 
 class AdminPage extends Component {
   componentDidMount() {
     console.log("mounted");
     this.getFeedback();
+    console.log(this.getFeedback());
   }
 
   getFeedback = () => {
@@ -23,14 +25,7 @@ class AdminPage extends Component {
 
     const feedbackArray = this.props.store.feedbackReducer.map(
       (feedback, i) => {
-        return (
-          <tr key={i}>
-            <td>{feedback.feeling}</td>
-            <td>{feedback.understanding}</td>
-            <td>{feedback.support}</td>
-            <td>{feedback.comments}</td>
-          </tr>
-        );
+        return <Item key={i} feedback={feedback} />;
       }
     );
     return (

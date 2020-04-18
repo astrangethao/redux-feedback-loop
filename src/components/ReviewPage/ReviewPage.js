@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
+import Button from "@material-ui/core/Button";
 
 class ReviewPage extends Component {
   handleSubmit = (event) => {
@@ -38,15 +39,23 @@ class ReviewPage extends Component {
         </div>
 
         <div>
-          <button onClick={this.handleSubmit} className="app-btn">
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={this.handleSubmit}
+          >
             SUBMIT
-          </button>
+          </Button>
         </div>
 
         <div>
-          <button onClick={this.handleBackClick} className="app-btn">
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={this.handleBackClick}
+          >
             BACK
-          </button>
+          </Button>
         </div>
       </div>
     );
