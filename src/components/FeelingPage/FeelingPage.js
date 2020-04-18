@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Button from "@material-ui/core/Button";
 
 class FeelingPage extends Component {
   state = {
@@ -20,7 +21,7 @@ class FeelingPage extends Component {
       });
       this.props.history.push("/understanding");
     } else {
-      alert("Please set a rate!");
+      return alert("Please set a rate!");
     }
   };
 
@@ -44,9 +45,13 @@ class FeelingPage extends Component {
         </div>
 
         <div>
-          <button onClick={this.handleNextClick} className="app-btn">
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={this.handleNextClick}
+          >
             NEXT
-          </button>
+          </Button>
         </div>
       </div>
     );

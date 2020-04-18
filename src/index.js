@@ -8,6 +8,13 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
 
+const feedbackReducer = (state = [], action) => {
+  if (action.type === "SET_FEEDBACK") {
+    return [...action.payload];
+  }
+  return state;
+};
+
 const feelingReducer = (state = "", action) => {
   if (action.type === "SET_FEELING_RATE") {
     return action.payload;
@@ -38,6 +45,7 @@ const commentReducer = (state = "", action) => {
 
 const storeInstance = createStore(
   combineReducers({
+    feedbackReducer,
     feelingReducer,
     understandingReducer,
     supportReducer,

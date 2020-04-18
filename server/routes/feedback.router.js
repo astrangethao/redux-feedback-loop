@@ -2,9 +2,21 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 
-router.post("/", (req, res) => {
-  console.log(req.body);
+router.get("/", (req, res) => {
+  const queryText = `SELECT * FROM "feedback" ORDER BY "id";`;
 
+  pool
+    .query(queryText)
+    .then((responseDB) => {
+      console.log("hi", responseDB.rows);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.sendStatus(500);
+    });
+});
+
+router.post("/", (req, res) => {
   const queryText = `INSERT INTO "feedback"
   (feeling, understanding, support, comments)
   VALUES ($1, $2, $3, $4);`;
