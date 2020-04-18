@@ -4,6 +4,16 @@ import axios from "axios";
 import Button from "@material-ui/core/Button";
 
 class ReviewPage extends Component {
+  getFeedback = () => {
+    axios
+      .get("/feedback")
+      .then((response) => {
+        console.log(response.data);
+        this.props.dispatch({ type: "SET_FEEDBACK", payload: response.data });
+      })
+      .catch((err) => console.warn("Error in GET", err));
+  };
+
   handleSubmit = (event) => {
     const feedback = {
       feeling: this.props.store.feelingReducer,
@@ -16,6 +26,7 @@ class ReviewPage extends Component {
       .post("/feedback", feedback)
       .then((response) => {
         console.log(response.data);
+        this.getFeedback();
         this.props.history.push("/submission");
       })
       .catch((error) => {
